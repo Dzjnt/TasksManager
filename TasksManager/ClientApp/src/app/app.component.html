@@ -1,4 +1,4 @@
-﻿<nb-layout>
+<nb-layout>
 
   <nb-layout-header fixed>
     <!-- Insert header here -->
@@ -28,9 +28,17 @@
               <nb-icon class="icon btn-icon" icon="bell-outline"></nb-icon>
               <span>Reminder</span>
             </button>
-            <button [routerLink]="['history']"nbButton class="button4 size-xl-medium" appearance="filled" status="primary" style="background-color:#50CA7C;">
+            <button [routerLink]="['history']" nbButton class="button4 size-xl-medium" appearance="filled" status="primary" style="background-color:#50CA7C;">
               <nb-icon class="icon btn-icon" icon="clock-outline"></nb-icon>
               <span>Historia</span>
+            </button>
+            <button [routerLink]="['/authentication/login']" nbButton class="button4 size-xl-medium" appearance="filled" status="primary" style="background-color:#50CA7C;">
+              <nb-icon class="icon btn-icon" icon="clock-outline"></nb-icon>
+              <span>Login</span>
+            </button>
+            <button [routerLink]="['/authentication/register']" nbButton class="button4 size-xl-medium" appearance="filled" status="primary" style="background-color:#50CA7C;">
+              <nb-icon class="icon btn-icon" icon="clock-outline"></nb-icon>
+              <span>Register</span>
             </button>
           </div>
         </div>

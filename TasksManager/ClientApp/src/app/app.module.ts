@@ -11,9 +11,9 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { CalendarComponent} from './calendar/calendar.component'
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbCardModule, NbCheckboxModule } from '@nebular/theme';
-import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
-import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
-import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
+import { ApiAuthorizationModule } from './api-authorization/api-authorization.module';
+import { AuthorizeGuard } from './api-authorization/authorize.guard';
+import { AuthorizeInterceptor } from './api-authorization/authorize.interceptor';
 import {
   NbThemeModule,
   NbLayoutModule,
