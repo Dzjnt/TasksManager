@@ -1,6 +1,57 @@
-<body>
-  <app-nav-menu></app-nav-menu>
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
-</body>
+﻿<nb-layout>
+
+  <nb-layout-header fixed>
+    <!-- Insert header here -->
+  
+  </nb-layout-header>
+
+  <nb-layout-column>
+
+    <nb-layout withScroll [class.header-hidden]="!(layout$ | async)?.header">
+    
+      <nb-layout-header *ngIf="(layout$ | async)?.header" class="slot header" fixed st>
+        <div class="space space-component">
+          <div class="space space-component">
+            <button [routerLink]="['home']" nbButton class="button size-xl-medium" appearance="filled" status="primary" style="background-color:#50CA7C;">
+              <nb-icon class="icon btn-icon" icon="menu-outline"></nb-icon>
+              <span>Home</span>
+            </button>
+            <button [routerLink]="['calendar']" nbButton class="button1 size-xl-medium" appearance="filled" status="primary" style="background-color:#50CA7C;">
+              <nb-icon class="icon btn-icon" icon="calendar-outline"></nb-icon>
+              <span>KALENDARZ</span>
+            </button>
+            <button [routerLink]="['tasks-list']" nbButton class="button2 size-xl-medium" appearance="filled" status="primary" style="background-color:#50CA7C;">
+              <nb-icon class="icon btn-icon" icon="list"></nb-icon>
+              <span>Lista Zadań</span>
+            </button>
+            <button [routerLink]="['reminder']" nbButton class="button3 size-xl-medium" appearance="filled" status="primary" style="background-color:#50CA7C;">
+              <nb-icon class="icon btn-icon" icon="bell-outline"></nb-icon>
+              <span>Reminder</span>
+            </button>
+            <button [routerLink]="['history']"nbButton class="button4 size-xl-medium" appearance="filled" status="primary" style="background-color:#50CA7C;">
+              <nb-icon class="icon btn-icon" icon="clock-outline"></nb-icon>
+              <span>Historia</span>
+            </button>
+          </div>
+        </div>
+      </nb-layout-header>
+    
+      <nb-sidebar *ngIf="(layout$ | async)?.sidebar" class="slot sidebar" responsive [collapsedBreakpoints]="['xs', 'is', 'sm']" [compactedBreakpoints]="[]">
+        <div class="space space-component1">
+    
+        </div>
+      </nb-sidebar>
+    
+      <nb-layout-column [style.padding]="padding$ | async">
+        <router-outlet></router-outlet>
+      </nb-layout-column>
+    
+    </nb-layout>
+    
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+  <!-- Insert footer here -->
+  </nb-layout-footer>
+
+</nb-layout>

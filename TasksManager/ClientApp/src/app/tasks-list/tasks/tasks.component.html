@@ -1,0 +1,16 @@
+<nb-card class="card" >
+  <nb-card-header class="slot">
+  
+    <div class="space space-component">
+      <h6 class="heading text-basic" style="margin-bottom: 10px;">Zadania</h6>
+      <input #taskInput id="taskInput" type="text" nbInput fullWidth  shape="round" placeholder="Wpisz zadanie..." style="margin-bottom: 10px;">
+      <button (click)="addNewTask(taskInput.value)" nbButton class="button size-xl-medium" appearance="filled" status="primary" style="background-color:#50CA7C;">
+        <nb-icon class="icon btn-icon" icon="plus-circle"></nb-icon>
+        <span>Dodaj nowe zadanie</span>
+      </button>
+    </div>
+  </nb-card-header>
+  <nb-card-body class="slot">   
+      <app-space [tasks]="tasks"></app-space>
+  </nb-card-body>
+</nb-card>
