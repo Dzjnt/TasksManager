@@ -14,6 +14,9 @@ import { NbCardModule, NbCheckboxModule } from '@nebular/theme';
 import { ApiAuthorizationModule } from './api-authorization/api-authorization.module';
 import { AuthorizeGuard } from './api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from './api-authorization/authorize.interceptor';
+import { TasksService } from './tasks-list/services/tasks.service';
+import { HttpTasksBackendService } from '../services/http-tasks-backend.service';
+import { TaskBackendService } from '../services/tasks-backend.service';
 import {
   NbThemeModule,
   NbLayoutModule,
@@ -100,7 +103,8 @@ const mediaBreakpoints: NbMediaBreakpoint[] = [
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'dark' })
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
+    TasksService, { provide: TaskBackendService, useClass: HttpTasksBackendService }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
