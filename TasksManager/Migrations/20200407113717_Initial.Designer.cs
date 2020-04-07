@@ -10,7 +10,7 @@ using TasksManager.Models.Database;
 namespace TasksManager.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200403134834_Initial")]
+    [Migration("20200407113717_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

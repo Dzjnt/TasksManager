@@ -30,17 +30,21 @@ namespace TasksManager
         {
             var dbConnectionString = @"Server=(localdb)\mssqllocaldb;Database=SchedulerDB;Trusted_Connection=True;";
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(dbConnectionString));
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>()
                 .AddEntityFrameworkStores<DatabaseContext>();
 
-  
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddIdentityServer()
-                .AddApiAuthorization<ApplicationUser, DatabaseContext>();
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 4;
+            });
+          
 
-            services.AddAuthentication()
-                .AddIdentityServerJwt();
             services.AddControllersWithViews();
             services.AddRazorPages();
             // In production, the Angular files will be served from this directory
@@ -75,7 +79,6 @@ namespace TasksManager
             app.UseRouting();
 
             app.UseAuthentication();
-            app.UseIdentityServer();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {

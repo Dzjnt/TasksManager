@@ -17,7 +17,8 @@ namespace TasksManager.Models.Database
 
         }
         public   DbSet<Task> Tasks { get; set; }
-
+        
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Task>();
